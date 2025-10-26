@@ -296,4 +296,19 @@ export const doctors = [
             line2: 'Circle, Ring Road, London'
         }
     },
+    {
+  _id: 'doc16',
+  name: 'Dr. Olivia Parker',
+  image: doc11,
+  speciality: 'Gastroenterologist',
+  degree: 'MBBS, MD (Gastroenterology)',
+  experience: '5 Years',
+  about: 'Dr. Olivia specializes in digestive system and liver diseases, providing expert care for gastrointestinal conditions.',
+  fees: 70,
+  address: {
+    line1: '67th Cross, Richmond',
+    line2: 'Circle, Ring Road, London'
+  }
+}
+
 ]
