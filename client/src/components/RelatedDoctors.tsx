@@ -19,13 +19,11 @@ const RelatedDoctors: React.FC<RelatedDoctorsProps> = ({ docId, speciality }) =>
 
   },[doctors, speciality, docId])
 
-  const handleClick = () =>{
-
-  }
+ 
 
   return(
     <div className='flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10'>
-        <h1 className='text-3xl font-medium'>Top Doctors to Book</h1>
+        <h1 className='text-3xl font-medium'>Related Doctors</h1>
         <p className='sm:w-1/3 text-center text-sm'>Simply browse through our extensive list of trusted doctors.</p>
         <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 pt-5 gap-y-6 px-3 sm:px-0'>
             {relDoc.slice(0,5).map((item, index)=>(
@@ -41,7 +39,6 @@ const RelatedDoctors: React.FC<RelatedDoctorsProps> = ({ docId, speciality }) =>
                 </Link>
             ))}
         </div>
-           <Button text='More'  classStyle='text-black px-20 bg-[#EAEFFF] py-4 hover:bg-primary hover:text-white mt-4' onClick={handleClick} />
     </div>
   )
 };

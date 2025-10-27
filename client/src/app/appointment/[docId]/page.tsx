@@ -244,7 +244,7 @@ const Page = () => {
                 relative shrink-0 snap-start
                 w-[76px] h-[92px] sm:w-[84px] sm:h-[110px]
                 rounded-2xl border flex items-center justify-center text-center transition-all
-                focus:outline-none focus:ring-2 focus:ring-offset-2
+                focus:outline-none focus:ring-2 focus:ring-offset-2 mt-2 ml-2
               `}
                     style={{
                       backgroundColor: isActive ? PRIMARY : "#FFFFFF",

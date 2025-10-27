@@ -1,10 +1,10 @@
 import AuthForm from "@/components/AuthForm";
 import Link from "next/link";
 
-export default function LoginPage() {
+export default function SignUpPage() {
   return (
     <>
-      <AuthForm mode="Login" />
+      <AuthForm mode="Sign Up" />
       
     </>
   );
