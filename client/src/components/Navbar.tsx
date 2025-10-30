@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
   };
 
   const handleMyAppointment = (): void => {
-    router.push("/my-appointment");
+    router.push("/my-appointments");
     setIsDropdownOpen(false);
     setIsMenuOpen(false);
   };
@@ -147,7 +147,7 @@ const Navbar: React.FC = () => {
         ) : (
           <button
             onClick={handleSignup}
-            className="bg-primary hover:bg-blue-900 text-white px-6 py-2 rounded-full text-sm md:text-base transition-all duration-200"
+            className="bg-primary hover:bg-primary-600 text-white px-6 py-2 rounded-full text-sm md:text-base transition-all duration-200"
           >
             CREATE ACCOUNT
           </button>
@@ -219,7 +219,7 @@ const Navbar: React.FC = () => {
               <Button
                 text="CREATE ACCOUNT"
                 onClick={handleSignup}
-                classStyle="px-6 bg-[#5F71FF] hover:bg-blue-900"
+                classStyle="px-6 bg-primary text-white hover:bg-primary-600"
               />
             )}
           </ul>

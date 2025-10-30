@@ -142,7 +142,7 @@ const Page = () => {
   }
 
   return (
-    <div className="px-4 lg:px-16 xl:px-28 py-6">
+    <div className="px-2 lg:px-16 xl:px-28 py-6">
       <div className="flex flex-col sm:flex-row gap-6 ">
         {/* Left: Doctor photo */}
         <div className="shrink-0">

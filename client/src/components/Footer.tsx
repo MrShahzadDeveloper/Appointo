@@ -5,11 +5,11 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-gray-700 pt-16 pb-8 border-t border-gray-200 px-6 lg:px-16 xl:px-28">
-      <div className="max-w-7xl mx-auto  flex flex-col md:flex-row justify-between gap-10 md:gap-20">
+    <footer className="bg-white text-gray-700 pt-16 pb-8 border-t border-gray-200 px-2 lg:px-16 xl:px-28">
+      <div className="w-full flex flex-col md:flex-row justify-between ">
         
         {/* Left Side - Logo & Description */}
-        <div className="flex-1 max-w-md">
+        <div className=" max-w-md">
           <div className="flex items-center gap-2 mb-4">
             <Image src={assets.logo} alt="logo" width={40} height={40} />
             <h2 className="text-2xl font-semibold text-gray-900">Appointo</h2>
@@ -23,7 +23,7 @@ const Footer = () => {
         </div>
 
         {/* Middle - Company Links */}
-        <div className="flex-1">
+        <div className="">
           <h3 className="text-lg font-semibold mb-4 text-gray-800">COMPANY</h3>
           <ul className="space-y-2">
             {["Home", "About Us", "Contact Us", "Privacy Policy"].map((item, i) => (
@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
 
         {/* Right - Get in Touch */}
-        <div className="flex-1">
+        <div className="">
           <h3 className="text-lg font-semibold mb-4 text-gray-800">GET IN TOUCH</h3>
           <ul className="space-y-2 text-sm text-gray-600">
             <li>+1-212-456-7890</li>
