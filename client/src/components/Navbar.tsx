@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { assets } from "../assets/assets_frontend/assets";
@@ -9,6 +9,7 @@ import Button from "../components/Button";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const [token, setToken] = useState<boolean>(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -21,8 +22,8 @@ const Navbar: React.FC = () => {
     { href: "/contact", label: "CONTACT" },
   ];
 
-  const handleLogin = (): void => {
-    router.push("/login");
+  const handleSignup = (): void => {
+    router.push("/signup");
     setToken(true);
   };
 
@@ -75,18 +76,26 @@ const Navbar: React.FC = () => {
 
       {/* Desktop Menu */}
       <ul className="hidden lg:flex justify-center items-center gap-8 text-gray-700 font-medium">
-        {menu.map((link) => (
-          <Link key={link.href} href={link.href}>
-            <li
-              className="relative cursor-pointer transition-all duration-200 
-              after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 
-              after:h-0.5 after:bg-primary after:transition-all after:duration-300
-              hover:text-primary hover:after:w-full"
-            >
-              {link.label}
-            </li>
-          </Link>
-        ))}
+        {menu.map((link) => {
+          const isActive = pathname === link.href;
+          return (
+            <Link key={link.href} href={link.href}>
+              <li
+                className={`relative cursor-pointer transition-all duration-200 
+                  after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 
+                  after:transition-all after:duration-300 
+                  hover:text-primary hover:after:w-full 
+                  ${
+                    isActive
+                      ? "text-primary after:w-full after:bg-primary"
+                      : "after:w-0 after:bg-primary/60"
+                  }`}
+              >
+                {link.label}
+              </li>
+            </Link>
+          );
+        })}
       </ul>
 
       {/* Desktop Profile / Login */}
@@ -137,7 +146,7 @@ const Navbar: React.FC = () => {
           </div>
         ) : (
           <button
-            onClick={handleLogin}
+            onClick={handleSignup}
             className="bg-primary hover:bg-blue-900 text-white px-6 py-2 rounded-full text-sm md:text-base transition-all duration-200"
           >
             CREATE ACCOUNT
@@ -163,17 +172,27 @@ const Navbar: React.FC = () => {
       {isMenuOpen && (
         <div className="absolute top-[70px] left-0 w-full bg-white border-t border-gray-200 shadow-md lg:hidden animate-slideDown">
           <ul className="flex flex-col items-center gap-6 py-6 text-gray-700 font-medium">
-            {menu.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <li className="hover:text-primary transition-colors duration-200">
-                  {link.label}
-                </li>
-              </Link>
-            ))}
+            {menu.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <li
+                    className={`transition-colors duration-200 
+                      ${
+                        isActive
+                          ? "text-primary font-semibold"
+                          : "hover:text-primary"
+                      }`}
+                  >
+                    {link.label}
+                  </li>
+                </Link>
+              );
+            })}
 
             {token ? (
               <>
@@ -197,13 +216,11 @@ const Navbar: React.FC = () => {
                 </p>
               </>
             ) : (
-              <>
-                <Button
-                  text="CREATE ACCOUNT"
-                  onClick={handleLogin}
-                  classStyle="px-6 bg-[#5F71FF] hover:bg-blue-900"
-                />
-              </>
+              <Button
+                text="CREATE ACCOUNT"
+                onClick={handleSignup}
+                classStyle="px-6 bg-[#5F71FF] hover:bg-blue-900"
+              />
             )}
           </ul>
         </div>

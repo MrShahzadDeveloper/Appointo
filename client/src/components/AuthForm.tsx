@@ -76,7 +76,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode }) => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50">
+    <div className="flex justify-center items-center min-h-[80vh] bg-gray-50">
       <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md border border-gray-100">
         <h1 className="text-2xl font-semibold text-gray-800 text-center">
           {mode}
