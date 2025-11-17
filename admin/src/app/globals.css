@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+*{
+  font-family: Outfit;
+}
+
+/* Define your design tokens here */
+@theme {
+  /* your brand color */
+  --color-primary: #5F71FF;
+
+  /* optional: a hover shade */
+  --color-primary-600: #4E5CF0;
+}
+
+::-webkit-scrollbar{
+  @apply hidden
+}
