@@ -1,25 +1,29 @@
 'use client'
 
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useState, ReactNode, useEffect } from "react";
 
 interface AdminContextType {
-  data: string | null;
-  setData: (value: string | null) => void;
+  atoken: string;
+  setAtoken: (value: string) => void;
+  backend_url: string | undefined;
 }
 
-export const AdminContext = createContext<AdminContextType | undefined>(undefined);
+export const AdminContext = createContext<AdminContextType | null>(null);
 
 export const AdminContextProvider = ({ children }: { children: ReactNode }) => {
-  
-  const [data, setData] = useState<string | null>(null);
+  const [atoken, setAtoken] = useState<string>('');
+  const backend_url = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-  const value: AdminContextType = {
-    data,
-    setData,
-  };
+  // Load token from localStorage on client
+  useEffect(() => {
+    const storedToken = localStorage.getItem("atoken");
+    if (storedToken) {
+      setAtoken(storedToken);
+    }
+  }, []);
 
   return (
-    <AdminContext.Provider value={value}>
+    <AdminContext.Provider value={{ atoken, setAtoken, backend_url }}>
       {children}
     </AdminContext.Provider>
   );
